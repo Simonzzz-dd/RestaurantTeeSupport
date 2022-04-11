@@ -1,31 +1,20 @@
 <template>
-  <div class="SectionOne">
-    <v-container style="max-width: 1200px; height: 100%; padding: 0;">
-      <div class="s1container">
-        <div class="s1-content">
-          <div class="image-s1">
-            <div class="image-s1-div" :style="`background-image: url( ${image});`">
-              <!-- <img :src="image" alt=""> -->
-            </div>
-
-            <h1 style="opacity: 0">
-              Shashas <br> Boutique
-            </h1>
+  <div class="sectionOne">
+    <v-container class="mainGrid_">
+      <div class="imagesSection_One">
+        <div class="sectionOneImages">
+          <div class="circle" />
+          <div class="imgSectionOne">
+            <img src="https://images.unsplash.com/photo-1603032050875-903d7c065931?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
           </div>
-          <div class="txt-s1">
-            <h1 class="main-">
-              {{ h1 }}
-            </h1>
-            <p>{{ p }}</p>
-            <v-btn class="s1-btn" to="/shop" color="primary">
-              ir a loja
-            </v-btn>
-            <div class="txtAnim">
-              <h1>{{ h1 }}</h1>
-              <p>{{ p }}</p>
-            </div>
+          <div class="imgSectionOneTwo">
+            <img :src="image" alt="">
           </div>
         </div>
+      </div>
+      <div class="s1-txt-content">
+        <h1> {{ h1 }} </h1>
+        <p>{{ p }}</p>
       </div>
     </v-container>
   </div>
@@ -44,188 +33,243 @@ export default {
     }
   },
   async mounted () {
-    gsap.registerPlugin(ScrollTrigger)
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.SectionOne',
-        // scrub: 1,
-        start: '10% 50%',
-        toggleActions: 'restart pause resume reverse'
-      }
-    })
-    tl.to('.txt-s1 .main_', { opacity: 1, duration: 1 })
-      .to('.txt-s1 .txtAnim h1', { textShadow: '0 0 0px hsla(28, 55%, 29%, 0.5)', duration: 1 }, '<')
-      .to('.txt-s1 .p', { opacity: 1, duration: 1 }, '<')
-      .to('.txt-s1 .txtAnim p', { textShadow: '0 0 0px hsla(28, 55%, 29%, 0.5)', duration: 1 }, '<')
-      .to('.image-s1-div ', { opacity: 0.75 }, '<')
-      .to('.s1-btn', { opacity: 1 }, '<')
-    const content_ = await Connection_.getS2Content()
+    const image = await Connection_.getS1Image()
+    const content_ = await Connection_.getS1Content()
+
     if (content_.sucess) {
       this.h1 = content_.sucess.h1
       this.p = content_.sucess.p
     }
-    const image = await Connection_.getS1Image()
     this.image = image
+    gsap.registerPlugin(ScrollTrigger)
+    const tl = gsap.timeline({ scrollTrigger: { trigger: '.sectionOne', start: 'top center', toggleActions: 'restart pause resume reverse' } })
+    tl.to('.circle', { scaleX: 1, scaleY: 1, yPercent: -50, ease: 'ease-in', duration: 0.4 })
+      .to('.imgSectionOne', { scaleX: 1, scaleY: 1, ease: 'ease-in', duration: 0.350 })
+      .to('.imgSectionOneTwo', { scaleX: 1, scaleY: 1, ease: 'ease-in', duration: 0.350 })
   }
 }
 </script>
 
 <style lang="scss">
- .SectionOne {
+
+  .sectionOne {
     position: relative;
-    z-index: 10;
-    background-color: $homepageBack;
-    border-top: solid 1px #9e6f2841;
-    height: 100vh;
-    max-height: 600px;
-    min-height: 500px;
-    text-align: center;
- }
- .s1container {
-  padding: 2.5rem;
-  width: 100%;
-  height: 100%;
- }
-
- .SectionOne h1 {
-    font-family: "Vanisha";
-    margin-top: 1rem;
-    color: $primary;
-    text-align: center;
- }
-
- .s1-content {
-   position: relative;
-   width: 100%;
-   display: grid;
-   grid-template-columns: 2fr 1fr;
-   align-items: center;
-   height: 100%;
-   grid-gap: 2rem;
- }
-
- .s1-btn {
-   opacity: .1;
- }
-
- .image-s1 {
-   position: relative;
-   height: 80%;
-   background-color: $homepageBack;
-   width: 100%;
-   display: flex;
-   align-items: center;
- }
- .image-s1-div {
-      height: 350px;
-      opacity: .4;
-   margin: auto;
-   background-position: center;
-      border-radius: 10px;
-      background-color: $homepageBack;
-   width: 100%;
-   position: relative;
-   z-index: 1;
- }
-
-  .txt-s1 {
-   position: relative;
- }
-  .txt-s1 .main-{
-   opacity: 0;
- }
-
- .txt-s1 p {
-   opacity: 0;
- }
- .txtAnim {
-   position: absolute;
-   top: 0;
- }
-
- .txtAnim h1 {
-   opacity: 1;
-   color: transparent;
-   text-shadow: 0 0 10px hsla(28, 55%, 29%, 0.5);
- }
- .txtAnim p {
-    opacity: 1;
-   color: transparent;
-   text-shadow: 0 0 10px hsla(28, 55%, 29%, 0.5);
- }
- .image-s1 h1 {
-    opacity: .1;
-    z-index: 0;
-    position: absolute;
-    color: #746145;
-    top: 50%;
-    left: -10%;
-    transform: translateY(-50%);
-    font-size: 12rem;
+    z-index: 20;
+    background-color: #fefefe;
+    min-height: 700px;
+      height: fit-content;
   }
 
-  @media ( max-width: 950px ) {
-    .SectionOne {
+  .sectionOne h1 {
+    font-family: "BasementGrotesque-Black";
+    font-size: 3.5rem;
+  }
 
-      border-top: solid 1px #9e6f2841;
+  .imagesSection_One {
+    position: relative;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mainGrid_ {
+    min-height: 700px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+      height: fit-content;
+      padding: 5rem 0;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  // images  --------------------------
+  .sectionOneImages {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+  }
+
+  .imgSectionOne {
+    position: absolute;
+    z-index: 0;
+    height: 400px;
+    left: -30%;
+    top: -5%;
+    // background-color: aqua;
+    // opacity: .5;
+    transform:  scale(.0);
+  }
+  .imgSectionOne img {
+    height: 60%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .imgSectionOneTwo {
+    transform:  scale(.0);
+    position: absolute;
+    z-index: 0;
+    height: 400px;
+    right: -40%;
+    bottom: -40%;
+    // background-color: aqua;
+    // opacity: .5;
+  }
+  .imgSectionOneTwo img {
+    height: 60%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .imagesSection_One {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .circle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(.2);
+    height: 300px;
+    width: 300px;
+    border-radius: 100%;
+    background-color: $primary;
+  }
+
+  // txt content ----------------------------
+  .s1-txt-content {
+    text-align: center;
+  }
+
+  .s1-txt-content {
+    // border-left: 4px solid #383838;
+    padding-left: 1rem;
+  }
+  @media ( max-width: 1275px ) {
+    .sectionOne {
+      position: relative;
+      z-index: 20;
+      background-color: #fefefe;
       height: fit-content;
       max-height: fit-content;
-      min-height: fit-content;
-      padding-bottom: -.5rem;
     }
-    .SectionOne * {
-      padding: 0;
-    }
-    .s1container {
-      padding: 0rem;
-    }
+    .mainGrid_ {
+      padding: 5rem 0;
+      display: grid;
+      align-items: center;
+      grid-gap: 3rem;
+      justify-content: center;
+      height: fit-content;
+      grid-template-columns: 1fr;
 
-    .SectionOne h1 {
-        margin-top: 1rem;
-        text-align: center;
     }
-
-    .s1-content {
+    .imagesSection_One {
       position: relative;
+      height: 100%;
       display: flex;
-      flex-direction: column-reverse;
+      justify-content: center;
       align-items: center;
     }
-
-    .image-s1 {
-      position: relative;
-      height: 80%;
-      padding: 0;
-      background-color: $homepageBack;
-      display: flex;
-      align-items: center;
+    .imgSectionOne {
+      position: absolute;
+      z-index: 0;
+      height: 400px;
+      left: -30%;
+      top: -5%;
+      // background-color: aqua;
+      // opacity: .5;
+      transform:  scale(.0);
     }
-    .image-s1-div {
-      padding: 0;
-      height: 350px;
-      margin: auto;
-      border-radius: 0px;
-      background-color: $homepageBack;
-      // border-top: solid #746145 2px;
-
-      margin: 0;
-      margin-top: 1rem;
-      width: 100%;
-      position: relative;
-      z-index: 1;
-    }
-
-    .txt-s1 {
-      margin-top: 2rem;
-    }
-    .s1-content p {
-      text-align: center;
-      opacity: 1;
-      // height: 350px;
-      color: transparent;
-      padding: 1rem;
-      text-shadow: 0 0 10px hsla(28, 55%, 29%, 0.5);
+    .imgSectionOneTwo {
+      transform:  scale(.0);
+      position: absolute;
+      z-index: 0;
+      height: 400px;
+      right: -40%;
+      bottom: -40%;
+      // background-color: aqua;
+      // opacity: .5;
     }
   }
 
+  @media ( max-width: 778px ) {
+    .sectionOneImages {
+      width: 100%;
+      height: 300px;
+      position: relative;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+
+    }
+    .imgSectionOne {
+      position: absolute;
+      z-index: 0;
+      width: 60%;
+      height: 300px;
+      left: 10%;
+      top: -5%;
+      // background-color: aqua;
+      // opacity: .5;
+      transform:  scale(.0);
+    }
+    .imgSectionOneTwo {
+      transform:  scale(.0);
+      height: 300px;
+      width: 60%;
+      position: absolute;
+      z-index: 0;
+      right: 10%;
+      bottom: -40%;
+      // background-color: aqua;
+      // opacity: .5;
+    }
+
+    .s1-txt-content {
+      padding: 0 2rem;
+    }
+
+  }
+  @media ( max-width: 478px ) {
+    .sectionOneImages {
+      width: 100%;
+      height: 250px;
+      position: relative;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+
+    }
+    .imgSectionOne {
+      position: absolute;
+      z-index: 0;
+      width: 60%;
+      height: 250px;
+      left: 10%;
+      top: -5%;
+      // background-color: aqua;
+      // opacity: .5;
+      transform:  scale(.0);
+    }
+    .imgSectionOneTwo {
+      transform:  scale(.0);
+      height: 250px;
+      width: 60%;
+      position: absolute;
+      z-index: 0;
+      right: 10%;
+      bottom: -40%;
+      // background-color: aqua;
+      // opacity: .5;
+    }
+  }
 </style>

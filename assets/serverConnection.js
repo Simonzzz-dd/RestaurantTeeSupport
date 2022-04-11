@@ -2,7 +2,7 @@
 /*eslint-disable */
 import Cookies from 'js-cookie/dist/js.cookie.mjs'
 
-let WEBSITEAPIKEY = "websiteone"
+let WEBSITEAPIKEY = "samia_roberts"
 let HOSTLINK = "https://zimmoserv.xyz:5000"
 
 function SetCookies ( cookies_ ) {

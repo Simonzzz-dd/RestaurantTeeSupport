@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="navbar--">
-      Shashas's Boutique
+    <div class="navbar---">
+      {{ companyname }}
     </div>
     <v-container style="max-width: 1200px">
       <div class="myproducts">
@@ -39,12 +39,13 @@ export default {
 }
 </script>
 <style lang="scss">
-  .navbar-- {
+  .navbar--- {
     padding: 1rem;
-    background-color: $homepageBack;
-    border-bottom: 1px solid #9e6f2858;
+    background-color:#383838;
+    font-weight: 700;
+    // border-bottom: 1px solid ;
     text-align: center;
-    color: $primary;
+    color: white;
   }
  .myproducts {
    min-height: 100vh;

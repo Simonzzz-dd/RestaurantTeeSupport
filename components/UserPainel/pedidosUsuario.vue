@@ -1,6 +1,6 @@
 <template>
   <v-sheet
-    color="#FDF0D5"
+    color="homepageBack"
     width="100%"
     class="mx-auto "
     elevation="0"

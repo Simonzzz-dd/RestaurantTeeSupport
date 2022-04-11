@@ -4,8 +4,8 @@
     max-width="800"
   >
     <template #activator="{ on, attrs }">
-      <v-icon v-bind="attrs" size="25" color="#C89851" v-on="on">
-        mdi-cart-outline
+      <v-icon v-bind="attrs" size="30" color="#ffffff" v-on="on">
+        mdi-cart
       </v-icon>
     </template>
     <template #default="dialog">

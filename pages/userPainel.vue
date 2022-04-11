@@ -1,8 +1,8 @@
 <template>
-  <div style="background-color: #FDF0D5 ">
+  <div style="background-color: #fefefe ">
     <v-container style="max-width: 1500px; padding:0; margin: 0 auto">
-      <div class="userPainel" style="background-color: #FDF0D5 ">
-        <v-card elevation="0" class="pa-4 main-c" color="#FDF0D5" max-width="100vw">
+      <div class="userPainel" style="background-color: #fefefe ">
+        <v-card elevation="0" class="pa-4 main-c" color="#fefefe" max-width="100vw">
           <h1 style="text-align: center; margin-top: 2rem">
             Painel Do Cliente
           </h1>

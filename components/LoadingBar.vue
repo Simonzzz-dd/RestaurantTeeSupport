@@ -2,7 +2,7 @@
   <div v-if="watchLoading" class="loading-page">
     <div class="backImageLoading" />
     <div>
-      <p>Shasha's Boutique</p>
+      <p>Samia Roberts</p>
       <h1>{{ test_.value }}%</h1>
     </div>
   </div>
@@ -68,7 +68,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: $homepageBack;
+    background-color: $primary;
     align-items: center;
     text-align: center;
     display: flex;
@@ -81,17 +81,20 @@ export default {
       position: absolute;
       width: 100%;
       height: 100%;
-      background-image: url("/back.jpg");
+      background-size: cover;
+      // background-image: url("/Food_Pattern.jpg");
       opacity: .15;
       z-index: 0;
   }
 
   .loading-page h1 {
-       font-family: "Vanisha",'Quicksand', sans-serif;
+    font-family: "BasementGrotesque-Black";
+    color: white;
   }
 
   .loading-page p {
     //   font-family: "Vanisha",'Quicksand', sans-serif;
+    color: white;
         font-weight: 700;
         font-size: .85rem;
   }

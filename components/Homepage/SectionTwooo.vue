@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import { gsap } from 'gsap/dist/gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+// import { gsap } from 'gsap/dist/gsap'
+// import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import Connection_ from '~/assets/serverConnection'
 export default {
   data: () => {
@@ -29,19 +29,6 @@ export default {
       this.p = content_.sucess.p
     }
     this.image = image
-    gsap.set('.image_s2', { transformOrigin: '0% 50%' })
-
-    gsap.registerPlugin(ScrollTrigger)
-    gsap.fromTo('.image_s2', 2.2, { width: '0%' }, {
-      width: '100%',
-      minWidth: '100px',
-      duration: 0.35,
-      scrollTrigger: {
-        trigger: '.s2Grid',
-        start: 'top +=100px'
-        // markers: 'true'
-      }
-    })
   }
 }
 </script>
@@ -50,37 +37,40 @@ export default {
 
   .s2Grid {
     margin: 4rem 2rem;
-    background-color: $homepageBack;
+    background-color: #efefef;
     // min-height: 550px; max-height: 550px;
     display: grid;
-    grid-row: 500px;
-        justify-content: space-between;
+    justify-content: space-between;
     grid-template-columns: 1fr 2fr;
     grid-auto-rows: 500px;
-
+      border-radius: 8px;
+    max-width: 90vw;
   }
 
   .s2Grid h1 {
-        font-family: "Vanisha";
+    max-width: 90vw;
+    font-family: "BasementGrotesque-Black";
+    font-size: 1.5rem;
   }
   .text {
     height: 100%;
     display: flex;
     flex-direction: column;
     max-width: 380px;
-
     padding: 2rem;
     justify-content: center;
+
   }
 
   .image_s2 {
     margin-left: auto;
-    min-width: 200px;
+    width: 100%;
   }
   @media ( max-width: 1200px ) {
     .s2Grid {
       margin: 2rem 1rem;
-      background-color: $homepageBack;
+
+      background-color: #efefef;
       min-height: fit-content; max-height: fit-content;
       display: grid;
           justify-content: space-between;
@@ -88,10 +78,14 @@ export default {
       grid-template-rows: max-content 400px;
 
     }
-  .image_s2 {
-    margin-left: auto;
-    min-width: 0;
-    width: 100%;
-  }
+    .image_s2 {
+      margin-left: auto;
+      min-width: 0;
+      width: 100%;
+    }
+
+    .text {
+          max-width: 80vw;
+    }
   }
 </style>

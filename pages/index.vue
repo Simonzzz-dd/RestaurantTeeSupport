@@ -35,7 +35,7 @@ export default {
 <style lang="scss" scoped>
 
 .Global {
-  background-color: #383838;
+  background-color: #fefefe;
 }
 
 .HomeContainer {

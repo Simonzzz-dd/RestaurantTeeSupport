@@ -3,8 +3,8 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: "%s - Shasha's Boutique",
-    title: 'Shashas',
+    titleTemplate: '%s - Samia Roberts',
+    title: 'Samia Roberts',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -72,13 +72,13 @@ export default {
       dark: false,
       themes: {
         light: {
-          primary: '#9E6F28',
+          primary: '#fba700',
           accent: '#efefef',
           secondary: '#dddddd',
           navBar: '#ffffff',
           shadow: '#000000',
           footer: '#383838',
-          homepageBack: '#FDF0D5',
+          homepageBack: '#fefefe',
           imageBack: '#A3A3A3',
           info: colors.teal.lighten1,
           warning: colors.amber.base,

@@ -2,7 +2,7 @@
   <v-app dark>
     <v-navigation-drawer
       v-model="drawer"
-      color="homepageBack"
+      color="footer"
       app
 
       :mini-variant="true"
@@ -18,7 +18,7 @@
             exact
           >
             <v-list-item-action>
-              <v-icon size="25" color="#C89851">
+              <v-icon size="30" color="#ffffff">
                 {{ item.icon }}
               </v-icon>
             </v-list-item-action>
@@ -71,21 +71,21 @@ export default {
     console.log(cookies_)
     const ArrayOfConditions = [
       {
-        icon: 'mdi-home-outline',
+        icon: 'mdi-home',
         to: '/',
         condition () {
           return true
         }
       },
       {
-        icon: 'mdi-basket-outline ',
+        icon: 'mdi-basket ',
         to: '/shop',
         condition () {
           return true
         }
       },
       {
-        icon: 'mdi-chart-bell-curve',
+        icon: 'mdi-chart-bar',
         to: '/dashboard_',
         condition () {
           if (Cookies.get(Connection_.serverApiCode + 'handleRequests') === 'true' || Cookies.get(Connection_.serverApiCode + 'addProduts') === 'true' || Cookies.get(Connection_.serverApiCode + 'manageMoney') === 'true' || Cookies.get(Connection_.serverApiCode + 'Manager') === 'true' || Cookies.get(Connection_.serverApiCode + 'addProduts') === 'true') { return true } else {
@@ -103,7 +103,7 @@ export default {
         }
       },
       {
-        icon: 'mdi-account-outline',
+        icon: 'mdi-account',
         to: '/userPainel',
         condition () {
           if (Cookies.get(Connection_.serverApiCode + 'auth') === 'true') { return true } else {
@@ -123,14 +123,14 @@ export default {
 <style lang="scss">
 
 @font-face {
-    font-family: "Vanisha";
-    src: local("Vanisha"),
-     url(~assets/fonts/Vanisha.ttf) format("truetype");
+    font-family: "BasementGrotesque-Black";
+    src: local("BasementGrotesque-Black"),
+     url(~assets/fonts/BasementGrotesque-Black_v1.202.otf) format("truetype");
 }
 
 
 html {
-    font-family: "Oxygen";
+    font-family: "BasementGrotesque-Black";
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap');
@@ -145,7 +145,7 @@ html {
     z-index: 10;
   }
   .border-right- {
-    border-left: solid 1px #e3c9a2;
+    border-left: solid 0 $primary;
     // height: 100vh;
   }
   @media ( max-width: 1260px ) {

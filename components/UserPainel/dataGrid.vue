@@ -6,10 +6,10 @@
       width="100%"
 
       class="pa-4 text-center c-small"
-      color="#FDF0D5"
+      color="#fefefe"
       elevation="0"
     >
-      <v-avatar color="#FDF0D5">
+      <v-avatar color="#fefefe">
         <v-icon color="#383838">
           mdi-bank
         </v-icon>

@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div class="navbar--">
-      Shashas's Boutique
-    </div>
     <div class="wrapper_">
       <v-container style="max-width: 1100px;" class="pa-8">
         <h1 style="margin-top: 2rem" class="dope">
